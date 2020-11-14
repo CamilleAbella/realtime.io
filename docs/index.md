@@ -31,9 +31,18 @@ Pour le Raton fou :
 - **Petit trou :** Un raton peut donner un objet à travers ce trou, mais il ne peut pas passer par ce trou.
 - **Colonne :** Les ratons peuvent gratter la base d’une colonne pour la faire tomber et créer un pont
 - **Eboulis :** Les ratons peuvent creuser dans un éboulis afin de découvrir un nouveau passage
-- **Échelle :** un raton peut monter à une échelle
+- **Échelle :** un raton peut monter à une échelle. Certaines échelles peuvent être déplacées.
 
 ### Les phases de jeu :
+**Ecran d'accueil**
+Ecran lorsqu'on se connecte sur le site, contiens les boutons:
+- Jouer (lancer une partie)
+- Règles / tuto
+- Cinématique d'introduction
+
+**Cinématique d'introduction**
+Courte vidéo présentant l'histoire du jeu.
+
 **Plateforme :**
 Les joueurs doivent passer à l’étage suivant en coopérant. Le jeu est sous forme de plateforme en 2D de profil (type Mario, Hollow Knight, Speluncky...)
 
@@ -83,11 +92,35 @@ Ravitailleur
 Radioactif
 
 Rôle spéciaux :
-- Le Raton fou : L'imposteur à qui il ne faut pas donner le Radon
-- Le Rameneur : Le raton chargé de déplacer le Radon.
+**Le Raton fou :** L'imposteur à qui il ne faut pas donner le Radon. Il dispose d'actions supplémentaires:
+- Créer des éboulis: En passant dans un couloir, le raton fou peut grater discrètement la zone et provoquer un éboulis que les autres ratons devront déblayer pour pouvoir passer. L'éboulis se provoque quelques secondes après l'action du Raton fou, pour lui permettre de ne pas être découvert trop facilement.
+- Démoraliser un Raton: (si on met une jauge de moral) Le raton fou peut démoraliser un autre Raton, les Raton démoralisés se déplacent moins vite.
+- Piéger une échelle: le raton fou peut mettre un piège pour que le prochain raton qui monte à l'échelle en tombe s'il essaie de monter.
+- Brouiller un indice: Rend un indice illisible.
+- Se dévoiler: Le raton fou se dévoile et gagne de nouvelles actions
 
+**Le Raton fou dévoilé :** Si jamais le raton fou a manqué de discretion et est découvert, il peut toujours se dévoiler et gagner de nouvelles actions.
+- Toutes les actions de base du Raton fou se déclenchent instantanément quand il choisi de les faire
 
-## 4 - Idées diverses :
+**Le Rameneur :** Le raton chargé de déplacer le Radon. Il est limité dans ses actions:
+- Il ne peut pas porter d'objets car il porte déjà le Radon et qu'il ne peut pas s'en débarrasser avant la fin du niveau.
+- Il ne peut pas utiliser les compétences spéciales liées à son rôle.
+- Il est plus lent et saute moins haut que les autres Ratons.
+
+## 4 - Stratégies de jeu:
+Si vous êtes innocent:
+- Aider le Rameneur à se déplacer dans le niveau, en ouvrant des passages. 
+- Chercher des indices dans des zones cachées tout autour du niveau. Nécessaire tant que les joueurs n'ont pas suffisement d'indices pour désigner un imposteur.
+- Si l'imposteur est découvert, arreter de chercher les indices et se concentrer sur aider le Rameneur à sortir de la caverne.
+
+Si vous êtes imposteur:
+- Rester discret (les autre joueurs devront consacrer du temps à chercher des indices tant qu'ils ne vous ont pas trouver)
+- Ralentir la progression de l'équipe.
+- Si jamais l'imposteur est découvert, gêner l'équipe au point de les empecher de sortir à temps.
+
+La stratégie de la discretion doit être plus avantageuse pour l'imposteur que la stratégie où il se dévoile.
+
+## 5 - Idées diverses :
 - Mettre de l’obscurité dans le jeu, ce qui pousse les joueurs à devoir chercher de la lumière
 - Mettre une barre de fatigue, que certains rôles peuvent remonter.
 - Le niveau est le même pour tout une partie, ce qui permet au jouer de visiter la partie qu’il souhaitent. Le passage du Radon dans ce cas ne se fait pas dans une zone à part.
