@@ -1,13 +1,11 @@
 import Player from "./Player"
 
 export default class Session {
-  static all = new Map<string, Session>()
+  static all: Session[] = []
 
-  public players = new Map<string, Player>()
+  public players: Player[] = []
 
-  constructor(public id: string) {}
-
-  addPlayer(player: Player) {
-    this.players.set(player.id, player)
+  constructor(public id: string) {
+    Session.all.push(this)
   }
 }
