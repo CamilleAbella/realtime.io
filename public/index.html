@@ -3,13 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Radon Voleur</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background-color: black;
+      }
+    </style>
   </head>
   <body>
-    <h1>Radon Voleur</h1>
-
-    <button id="ping">Ping ?</button>
-
+    <canvas id="pixi"></canvas>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./script.js"></script>
+    <script type="module" src="./libs/pixi.min.mjs"></script>
+    <script type="module" src="./index.mjs"></script>
   </body>
 </html>
