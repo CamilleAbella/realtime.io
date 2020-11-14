@@ -29,21 +29,21 @@ socket.on("nameChoose", (name) => {
   scenes.chooseSession.switch()
 })
 
-socket.on("sessionJoin", (session) => {
+socket.on("sessionJoin", (session, player) => {
   console.log("joined session")
   if (session.players.size === 6) {
-    scenes.sessionStarted.switch(session)
+    scenes.sessionStarted.switch(session, player)
   } else {
-    scenes.waitingPlayers.switch(session)
+    scenes.waitingPlayers.switch(session, player)
   }
 })
 
 socket.on("playerJoin", (session, player) => {
   console.log("joined player", player.name)
   if (session.players.size === 6) {
-    scenes.sessionStarted.switch(session)
+    scenes.sessionStarted.switch(session, player)
   } else {
-    scenes.waitingPlayers.switch(session)
+    scenes.waitingPlayers.switch(session, player)
   }
 })
 

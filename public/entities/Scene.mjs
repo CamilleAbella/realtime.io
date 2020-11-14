@@ -12,11 +12,11 @@ export default class Scene {
     Scene.scenes.set(name, this)
   }
 
-  switch(values) {
+  switch(...values) {
     if (Scene.current) {
       Scene.scenes.get(Scene.current).destroy(Scene.values)
     }
-    Scene.values = this.init(values)
+    Scene.values = this.init(...values)
     Scene.current = this.name
   }
 }

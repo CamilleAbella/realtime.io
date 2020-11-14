@@ -5,7 +5,7 @@
 }
 
 body {
-  color: #fff;
+  color: #9d9d9d;
   display: grid;
   place-items: center;
   height: 100vh;
@@ -41,4 +41,8 @@ button {
 
 #chooseSession > div {
   display: flex;
+}
+
+.me {
+  color: #fff;
 }
