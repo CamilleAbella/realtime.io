@@ -29,9 +29,13 @@ socket.on("nameChoose", (name) => {
   scenes.chooseSession.switch()
 })
 
-socket.on("sessionJoin", (sessionId) => {
-  console.log("joined session", sessionId)
-  scenes.waitingPlayers.switch(sessionId)
+socket.on("sessionJoin", (playerCount) => {
+  console.log("joined session")
+  if (playerCount === 6) {
+    scenes.sessionStarted.switch()
+  } else {
+    scenes.waitingPlayers.switch()
+  }
 })
 
 socket.on("playerJoin", (playerCount, name) => {
