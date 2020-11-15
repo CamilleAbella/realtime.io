@@ -1,4 +1,5 @@
 import * as scenes from "./app/scenes.mjs"
+import * as utils from "./app/utils.mjs"
 import socket from "./app/socket.mjs"
 
 // handle keyboard
@@ -47,7 +48,7 @@ socket.on("nameChoose", (player, debugSession) => {
 
 socket.on("sessionJoin", (session) => {
   console.log("joined session")
-  if (session.players.length === 6) {
+  if (session.players.length === utils.playerCountNeeded) {
     scenes.sessionStarted.switch(session)
   } else {
     scenes.waitingPlayers.switch(session)
@@ -56,7 +57,7 @@ socket.on("sessionJoin", (session) => {
 
 socket.on("playerJoin", (session, player) => {
   console.log("joined player", player.name)
-  if (session.players.length === 6) {
+  if (session.players.length === utils.playerCountNeeded) {
     scenes.sessionStarted.switch(session)
   } else {
     scenes.waitingPlayers.switch(session)

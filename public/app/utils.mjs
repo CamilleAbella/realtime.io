@@ -1,5 +1,7 @@
 import * as PIXI from "../libs/pixi.min.mjs"
 
+export const playerCountNeeded = 1
+
 /**
  * @param {string[]} elements
  */
