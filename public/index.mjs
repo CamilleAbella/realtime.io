@@ -1,7 +1,20 @@
 import * as scenes from "./app/scenes.mjs"
 import socket from "./app/socket.mjs"
 
+// handle keyboard
+
+document.body.onkeydown = (event) => {
+  socket.emit("key", event.key, true)
+}
+document.body.onkeyup = (event) => {
+  socket.emit("key", event.key, false)
+}
+
+// set first scene
+
 scenes.chooseName.switch()
+
+// handle inputs
 
 document.getElementById("name").onkeyup = (event) => {
   if (event.key === "Enter") {
@@ -23,6 +36,8 @@ document.getElementById("join").onkeyup = (event) => {
     socket.emit("joinSession", sessionId)
   }
 }
+
+// handle socket
 
 socket.on("nameChoose", (player, debugSession) => {
   window.me = player
