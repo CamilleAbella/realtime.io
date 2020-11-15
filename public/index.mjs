@@ -24,26 +24,27 @@ document.getElementById("join").onkeyup = (event) => {
   }
 }
 
-socket.on("nameChoose", (name) => {
-  console.log("named", name)
-  scenes.chooseSession.switch()
+socket.on("nameChoose", (player, debugSession) => {
+  window.me = player
+  console.log("named", player.name)
+  scenes.chooseSession.switch(debugSession)
 })
 
-socket.on("sessionJoin", (session, player) => {
+socket.on("sessionJoin", (session) => {
   console.log("joined session")
-  if (session.players.size === 6) {
-    scenes.sessionStarted.switch(session, player)
+  if (session.players.length === 6) {
+    scenes.sessionStarted.switch(session)
   } else {
-    scenes.waitingPlayers.switch(session, player)
+    scenes.waitingPlayers.switch(session)
   }
 })
 
 socket.on("playerJoin", (session, player) => {
   console.log("joined player", player.name)
-  if (session.players.size === 6) {
-    scenes.sessionStarted.switch(session, player)
+  if (session.players.length === 6) {
+    scenes.sessionStarted.switch(session)
   } else {
-    scenes.waitingPlayers.switch(session, player)
+    scenes.waitingPlayers.switch(session)
   }
 })
 

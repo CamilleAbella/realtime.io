@@ -13,7 +13,15 @@ body {
   font-family: sans-serif;
 }
 
-h1 {
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
@@ -45,4 +53,14 @@ button {
 
 .me {
   color: #fff;
+}
+
+#id {
+  background-color: #000;
+  color: #fff;
+  font-family: monospace;
+  word-break: keep-all;
+  white-space: nowrap;
+  padding: 10px;
+  border-radius: 5px;
 }

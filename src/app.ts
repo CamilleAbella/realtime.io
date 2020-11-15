@@ -1,6 +1,10 @@
+import dotenv from "dotenv"
 import express from "express"
 import * as http from "http"
 import * as uuid from "uuid"
+
+dotenv.config()
+
 import * as utils from "./utils"
 
 import Session from "./entities/Session"
@@ -21,12 +25,13 @@ io.on("connection", (socket: any) => {
   socket.on("chooseName", (name: any) => {
     if (
       typeof name === "string" &&
-      name.length > 5 &&
-      name.length < 20 &&
+      name.length > 2 &&
+      name.length < 30 &&
       !/[\n<>]/.test(name)
     ) {
       cache.player = new Player(uuid.v4(), name)
-      socket.emit("nameChoose", name)
+      const debugSession = process.env.DEBUG ? Session.all[0] : null
+      socket.emit("nameChoose", cache.player, debugSession)
     } else {
       socket.emit("error", "invalid name")
       console.error("invalid name")
@@ -44,7 +49,7 @@ io.on("connection", (socket: any) => {
     cache.session = session
     socket.join(session.id)
 
-    socket.emit("sessionJoin", session, cache.player)
+    socket.emit("sessionJoin", session)
     console.log("create session")
   })
 

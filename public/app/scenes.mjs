@@ -1,10 +1,17 @@
 import * as utils from "./utils.mjs"
 import Scene from "../entities/Scene.mjs"
 import Player from "../entities/Player.mjs"
+import socket from "./socket.mjs"
 
 export const chooseName = new Scene("chooseName")
-export const chooseSession = new Scene("chooseSession")
-export const waitingPlayers = new Scene("waitingPlayers", (session, player) => {
+export const chooseSession = new Scene("chooseSession", (debugSession) => {
+  utils.switchElements(["chooseSession"])
+  if (debugSession)
+    document.getElementById("debugSession").onclick = () => {
+      socket.emit("joinSession", debugSession.id)
+    }
+})
+export const waitingPlayers = new Scene("waitingPlayers", (session) => {
   utils.switchElements(["sessionOverlay"])
   document.getElementById("owner").innerText = session.players[0].name
   document.getElementById("id").innerText = session.id
@@ -13,17 +20,15 @@ export const waitingPlayers = new Scene("waitingPlayers", (session, player) => {
   )
   document.getElementById("playerList").innerHTML = session.players
     .map((p) =>
-      p.id === player.id
-        ? `<li class="me">${p.name}</li>`
-        : `<li>${p.name}</li>`
+      p.id === me.id ? `<li class="me">${p.name}</li>` : `<li>${p.name}</li>`
     )
     .join("<br>")
 })
 
 export const sessionStarted = new Scene(
   "sessionStarted",
-  (session, player) => {
-    return new Player(player)
+  (session) => {
+    return new Player(me)
   },
   (player) => {
     player.destroy()

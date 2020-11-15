@@ -11,34 +11,32 @@
     <script type="module" src="./libs/pixi.min.mjs"></script>
     <script type="module" src="./index.mjs"></script>
 
+    <div class="switchable" id="chooseName">
+      <h1>Choose name</h1>
+      <input type="text" id="name" placeholder="Your name" />
+    </div>
+
     <div class="switchable" id="chooseSession">
-      <h1>Choose session</h1>
+      <h1 id="debugSession">Choose session</h1>
       <div>
         <button type="button" id="new">New session</button>
         <input type="text" id="join" placeholder="Session id" />
       </div>
     </div>
 
-    <div class="switchable" id="chooseName">
-      <h1>Choose name</h1>
-      <input type="text" id="name" placeholder="Your name" />
-    </div>
-
     <div class="switchable" id="sessionOverlay">
       <div>
-        <span> owner </span>
+        <span> Owner: </span>
         <span id="owner"></span>
       </div>
       <div>
-        <span> id </span>
-        <span id="id"></span>
+        <div id="id"></div>
       </div>
       <div>
-        <span id="playerCount"></span> players
+        <span id="playerCount"></span> / 6 players
         <div id="playerList"></div>
       </div>
       <button type="button" id="cancel">Cancel</button>
-      <span> La partie commencera avec 6 joueurs </span>
     </div>
   </body>
 </html>
