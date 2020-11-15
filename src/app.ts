@@ -56,6 +56,11 @@ io.on("connection", (socket: any) => {
   socket.on("joinSession", (id: any) => {
     if (typeof id === "string" && Session.all.some((s) => s.id === id)) {
       const session = Session.all.find((s) => s.id === id) as Session
+      if (session.players.length > 5) {
+        socket.emit("error", "session is already full")
+        console.error("session is already full")
+        return
+      }
       if (!cache.player) {
         socket.emit("error", "oops")
         console.error("oops")

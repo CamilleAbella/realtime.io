@@ -19,8 +19,20 @@ export function switchElements(elements = []) {
 export function makeAnimation(name) {
   const path = `../assets/sprites/${name}.json`
   const sheet = PIXI.Loader.shared.resources[path].spritesheet
-  const sprite = new PIXI.AnimatedSprite(sheet.animations["image_sequence"])
-  sprite.animationSpeed = 60 / 24
+  const sprite = new PIXI.AnimatedSprite(
+    sheet.animations[Object.keys(sheet.animations)[0]]
+  )
+  sprite.animationSpeed = 24 / 60
   sprite.play()
   return sprite
+}
+
+/**
+ * @param {string} name
+ * @return PIXI.Sprite
+ */
+export function makeSprite(name) {
+  const path = `../assets/sprites/${name}.png`
+  const texture = PIXI.Loader.shared.resources[path].texture
+  return new PIXI.Sprite(texture)
 }

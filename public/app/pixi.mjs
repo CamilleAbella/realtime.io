@@ -10,6 +10,9 @@ PIXI.utils.sayHello(type)
 PIXI.Loader.shared
   .add("../assets/sprites/allfour.json")
   .add("../assets/sprites/standing.json")
+  .add("../assets/sprites/turnleft.png")
+  .add("../assets/sprites/turnright.png")
+  .load()
 
 const pixi = new PIXI.Application({
   antialias: true,
