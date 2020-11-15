@@ -7,6 +7,7 @@ dotenv.config()
 
 import * as utils from "./utils"
 
+import Keyboard from "./entities/Keyboard"
 import Session from "./entities/Session"
 import Player from "./entities/Player"
 
@@ -20,7 +21,10 @@ io.on("connection", (socket: any) => {
   const cache: {
     player?: Player
     session?: Session
-  } = {}
+    keyboard: Keyboard
+  } = {
+    keyboard: new Keyboard(),
+  }
 
   socket.on("chooseName", (name: any) => {
     if (
@@ -77,6 +81,11 @@ io.on("connection", (socket: any) => {
       socket.emit("error", "invalid session id")
       console.error("invalid session id")
     }
+  })
+
+  socket.on("key", (key: string, pressed: boolean) => {
+    cache.keyboard.keys[key] = pressed
+    cache.player?.refresh(cache.keyboard)
   })
 
   socket.on("disconnect", () => {

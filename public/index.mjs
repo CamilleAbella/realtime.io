@@ -3,10 +3,10 @@ import socket from "./app/socket.mjs"
 
 // handle keyboard
 
-document.body.onkeydown = (event) => {
+document.getElementById("pixi").onkeydown = (event) => {
   socket.emit("key", event.key, true)
 }
-document.body.onkeyup = (event) => {
+document.getElementById("pixi").onkeyup = (event) => {
   socket.emit("key", event.key, false)
 }
 
