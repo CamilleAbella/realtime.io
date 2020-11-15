@@ -17,7 +17,7 @@ export function switchElements(elements = []) {
  * @return PIXI.AnimatedSprite
  */
 export function makeAnimation(name) {
-  const path = `assets/sprites/${name}.json`
+  const path = `../assets/sprites/${name}.json`
   const sheet = PIXI.Loader.shared.resources[path].spritesheet
   const sprite = new PIXI.AnimatedSprite(sheet.animations["image_sequence"])
   sprite.animationSpeed = 60 / 24
