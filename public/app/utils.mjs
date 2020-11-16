@@ -1,19 +1,5 @@
 import * as PIXI from "../libs/pixi.min.mjs"
 
-export const playerCountNeeded = 1
-
-/**
- * @param {string[]} elements
- */
-export function switchElements(elements = []) {
-  Array.from(document.getElementsByClassName("switchable")).forEach((e) => {
-    e.style.display = "none"
-  })
-  elements.forEach((id) => {
-    document.getElementById(id).style.display = "block"
-  })
-}
-
 /**
  * @param {string} name
  * @return PIXI.AnimatedSprite

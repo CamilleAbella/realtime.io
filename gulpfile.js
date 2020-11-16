@@ -4,7 +4,7 @@ const tsc = require("gulp-typescript")
 const cp = require("child_process")
 
 function start(cb) {
-  cp.exec("nodemon dist/index", cb)
+  cp.exec("nodemon dist/app", cb)
 }
 
 function cleaning() {

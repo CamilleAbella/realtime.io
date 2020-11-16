@@ -1,7 +1,7 @@
 {
-  "name": "radon-voleur",
+  "name": "realtime-io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Template for real time projects in TypeScript using socket.io",
   "main": "dist/app.js",
   "scripts": {
     "start": "gulp start",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CamilleAbella/RadonVoleur.git"
+    "url": "git+https://github.com/CamilleAbella/realtime.io.git"
   },
-  "author": "",
+  "author": "ghom",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CamilleAbella/RadonVoleur/issues"
+    "url": "https://github.com/CamilleAbella/realtime.io/issues"
   },
-  "homepage": "https://github.com/CamilleAbella/RadonVoleur#readme",
+  "homepage": "https://github.com/CamilleAbella/realtime.io#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
