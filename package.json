@@ -4,6 +4,7 @@
   "description": "Template for real time projects in TypeScript using socket.io",
   "main": "dist/app.js",
   "scripts": {
+    "debug": "gulp build && node .",
     "start": "gulp start",
     "watch": "gulp watch",
     "build": "gulp build",

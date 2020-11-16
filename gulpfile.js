@@ -38,7 +38,7 @@ const watching = gulp.series(buildTS, (cb) => {
 const build = gulp.series(cleaning, buildTS)
 const watch = gulp.series(build, watching)
 
-exports.start = start
+exports.start = gulp.series(build, start)
 exports.build = build
 exports.watch = watch
 exports.default = watch

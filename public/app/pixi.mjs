@@ -13,7 +13,7 @@ const pixi = new PIXI.Application({
   antialias: true,
   autoResize: true,
   resolution: 1,
-  resizeTo: window.document.documentElement,
+  resizeTo: document.getElementById("view"),
   view: document.getElementById("pixi"),
 })
 
