@@ -7,9 +7,7 @@ if (!PIXI.utils.isWebGLSupported()) {
 
 PIXI.utils.sayHello(type)
 
-PIXI.Loader.shared
-  .add("../assets/sprites/allfour.json")
-  .load()
+PIXI.Loader.shared.add("../assets/sprites/allfour.json").load()
 
 const pixi = new PIXI.Application({
   antialias: true,
