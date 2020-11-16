@@ -10,6 +10,7 @@ export function makeAnimation(name) {
   const sprite = new PIXI.AnimatedSprite(
     sheet.animations[Object.keys(sheet.animations)[0]]
   )
+  sprite.anchor.set(0.5)
   sprite.animationSpeed = 24 / 60
   sprite.play()
   return sprite
@@ -22,5 +23,7 @@ export function makeAnimation(name) {
 export function makeSprite(name) {
   const path = `../assets/sprites/${name}.png`
   const texture = PIXI.Loader.shared.resources[path].texture
-  return new PIXI.Sprite(texture)
+  const sprite = new PIXI.Sprite(texture)
+  sprite.anchor.set(0.5)
+  return sprite
 }
